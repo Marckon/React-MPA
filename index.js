@@ -10,6 +10,10 @@ const pages=[
     {
         title:'redux-counterApp',
         description:'使用redux进行数据流管理的一个计数器react应用'
+    },
+    {
+        title:'mockjs-learn',
+        description:"学习mock数据的第一个demo"
     }
 ];
 

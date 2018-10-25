@@ -6,6 +6,7 @@ module.exports = {
         index: path.resolve(__dirname,'..','index.js'),
         rca: path.resolve(__dirname, '..', 'pages/redux-counterApp/src/index.js'),
         demo1:path.resolve(__dirname,'..','pages/demo1/index.js'),
+        mocklearn:path.resolve(__dirname,'..','pages/mockjs-learn/src/index.js')
     },
     output: {
         filename: "[name].bundle.js",

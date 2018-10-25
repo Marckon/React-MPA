@@ -136,7 +136,7 @@ var pages = [{
   title: 'demo1',
   description: '一个初始demo'
 }, {
-  title: 'react-counterApp',
+  title: 'redux-counterApp',
   description: '使用redux进行数据流管理的一个计数器react应用'
 }];
 
@@ -154,11 +154,16 @@ function (_React$Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_2__["Row"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_2__["Layout"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_2__["Layout"].Header, {
+        style: {
+          color: "#fff",
+          fontSize: "24px"
+        }
+      }, "React \u5B66\u4E60demo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_2__["Row"], {
         type: "flex",
         justify: "center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_2__["Col"], {
-        span: 18
+        span: 20
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_2__["List"], {
         itemLayout: "horizontal",
         dataSource: pages,
@@ -170,7 +175,7 @@ function (_React$Component) {
             description: item.description
           }));
         }
-      })));
+      }))));
     }
   }]);
 

@@ -91,15 +91,15 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./pages/demo1/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./pages/mockjs-learn/src/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./pages/demo1/index.js":
-/*!******************************!*\
-  !*** ./pages/demo1/index.js ***!
-  \******************************/
+/***/ "./pages/mockjs-learn/src/index.js":
+/*!*****************************************!*\
+  !*** ./pages/mockjs-learn/src/index.js ***!
+  \*****************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -107,8 +107,6 @@ return /******/ (function(modules) { // webpackBootstrap
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "react-dom");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -129,6 +127,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+var ReactDOM = __webpack_require__(/*! react-dom */ "react-dom");
 
 var App =
 /*#__PURE__*/
@@ -144,20 +143,14 @@ function (_React$Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      var goHome = function goHome() {
-        window.location.href = '/';
-      };
-
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "this is a demo1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: goHome
-      }, "return home"));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "mock learn");
     }
   }]);
 
   return App;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, null), document.getElementById('root'));
+ReactDOM.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, null), document.getElementById('root'));
 
 /***/ }),
 
@@ -185,4 +178,4 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react_dom__;
 
 /******/ });
 });
-//# sourceMappingURL=demo1.bundle.js.map
+//# sourceMappingURL=mocklearn.bundle.js.map
