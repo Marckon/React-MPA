@@ -13,7 +13,11 @@ const pages=[
     },
     {
         title:'mockjs-learn',
-        description:"学习mock数据的第一个demo"
+        description:'学习mock数据的第一个demo'
+    },
+    {
+        title:'online-shop',
+        description:'一个基于mock虚拟数据和redux状态管理的简单在线商店'
     }
 ];
 
@@ -21,11 +25,11 @@ class App extends React.Component{
     render(){
         return (
             <Layout>
-                <Layout.Header style={{color:"#fff",fontSize:"24px"}}>React 学习demo</Layout.Header>
-                <Row type={"flex"} justify={"center"}>
+                <Layout.Header style={{color:'#fff',fontSize:'24px'}}>React 学习demo</Layout.Header>
+                <Row type={'flex'} justify={'center'}>
                     <Col span={20}>
                         <List
-                            itemLayout={"horizontal"}
+                            itemLayout={'horizontal'}
                             dataSource={pages}
                             renderItem={item=>(
                                 <List.Item>

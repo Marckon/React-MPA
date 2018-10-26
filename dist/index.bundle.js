@@ -87,7 +87,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/";
 /******/
 /******/
 /******/ 	// Load entry module and return exports
@@ -138,6 +138,12 @@ var pages = [{
 }, {
   title: 'redux-counterApp',
   description: '使用redux进行数据流管理的一个计数器react应用'
+}, {
+  title: 'mockjs-learn',
+  description: '学习mock数据的第一个demo'
+}, {
+  title: 'online-shop',
+  description: '一个基于mock虚拟数据和redux状态管理的简单在线商店'
 }];
 
 var App =
@@ -156,16 +162,16 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_2__["Layout"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_2__["Layout"].Header, {
         style: {
-          color: "#fff",
-          fontSize: "24px"
+          color: '#fff',
+          fontSize: '24px'
         }
       }, "React \u5B66\u4E60demo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_2__["Row"], {
-        type: "flex",
-        justify: "center"
+        type: 'flex',
+        justify: 'center'
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_2__["Col"], {
         span: 20
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_2__["List"], {
-        itemLayout: "horizontal",
+        itemLayout: 'horizontal',
         dataSource: pages,
         renderItem: function renderItem(item) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_2__["List"].Item, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_2__["List"].Item.Meta, {
