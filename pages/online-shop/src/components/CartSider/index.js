@@ -1,12 +1,22 @@
 import React from 'react';
 import {Card, Button} from 'antd';
-import CartItem from '../CartItem'
+import CartItem from '../CartItem';
+import axios from 'axios';
+import {proxyGoodsInfoAPI} from '../../../data/index';
+
 
 const ItemList=[1,2,3,4,5].map(v=>{
    return (<CartItem key={v}/>)
 });
 
 class CartSider extends React.Component {
+    componentDidMount(){
+        let getGoodsAPI=proxyGoodsInfoAPI();
+        axios.get(getGoodsAPI)
+            .then(res=>{
+                console.log(res.data.imageUrl)
+            })
+    }
     render() {
         return (
             <Card title={"购物车"}>
