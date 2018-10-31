@@ -1,5 +1,5 @@
-import proxyGoodsInfoAPI from './goodsInfo';
+import proxyGoodsListAPI from './goodsList';
 
 export {
-    proxyGoodsInfoAPI
+    proxyGoodsListAPI
 }

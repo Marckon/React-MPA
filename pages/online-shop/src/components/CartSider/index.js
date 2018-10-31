@@ -2,7 +2,7 @@ import React from 'react';
 import {Card, Button} from 'antd';
 import CartItem from '../CartItem';
 import axios from 'axios';
-import {proxyGoodsInfoAPI} from '../../../data/index';
+import {proxyGoodsListAPI} from '../../../data/index';
 
 
 const ItemList=[1,2,3,4,5].map(v=>{
@@ -11,10 +11,10 @@ const ItemList=[1,2,3,4,5].map(v=>{
 
 class CartSider extends React.Component {
     componentDidMount(){
-        let getGoodsAPI=proxyGoodsInfoAPI();
+        let getGoodsAPI=proxyGoodsListAPI();
         axios.get(getGoodsAPI)
             .then(res=>{
-                console.log(res.data.imageUrl)
+                console.log(res.data)
             })
     }
     render() {
