@@ -13,13 +13,13 @@ class RootComponent extends React.Component {
             <Layout>
                 <Header className={styles.header}>MOCK商店</Header>
                 <Layout>
-                    <Sider collapsible={true} theme={"light"}>
+                    <Sider collapsible={true} theme={"light"} defaultCollapsed={true}>
                         <CategorySider/>
                     </Sider>
                     <Content className={styles.content}>
 
                     </Content>
-                    <Sider collapsible={true} theme={"light"}>
+                    <Sider collapsible={true} theme={"light"} defaultCollapsed={true}>
                         <CartSider/>
                     </Sider>
                 </Layout>
