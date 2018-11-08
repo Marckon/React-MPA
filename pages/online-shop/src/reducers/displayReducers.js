@@ -1,5 +1,5 @@
 import {
-    SET_CART_SHOW,
+    TOGGLE_CART_SHOW,
 } from "../actions/displayActions";
 
 const initialState={
@@ -7,9 +7,9 @@ const initialState={
 };
 export const displayReducer = (state=initialState, action) => {
     switch (action.type) {
-        case SET_CART_SHOW:
+        case TOGGLE_CART_SHOW:
             return Object.assign({}, state, {
-                cartDisplay: action.visibility
+                cartDisplay: !state.cartDisplay
             });
         default:
             return state;

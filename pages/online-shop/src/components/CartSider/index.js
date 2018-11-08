@@ -1,31 +1,34 @@
 import React from 'react';
 import {Card, Button} from 'antd';
 import CartItem from '../CartItem';
-import axios from 'axios';
-import {proxyGoodsListAPI} from '../../../data/index';
+import {connect} from 'react-redux';
 
-
-const ItemList=[1,2,3,4,5].map(v=>{
-   return (<CartItem key={v}/>)
-});
 
 class CartSider extends React.Component {
-    componentDidMount(){
-        let getGoodsAPI=proxyGoodsListAPI();
-        axios.get(getGoodsAPI)
-            .then(res=>{
-                console.log(res.data)
-            })
+    componentDidMount() {
+
+
     }
+
     render() {
-        return (
-            <Card title={"购物车"}>
+        console.log(this.props)
+        const ItemList =()=>( this.props.selectedGoods.map(v => {
+            return (<CartItem key={v.goodsId}/>)
+        }));
+        const CartPanel = () => (
+            <div>
                 {ItemList}
                 <div>合计：￥659</div>
                 <Button type={"primary"}>结算</Button>
+            </div>
+        );
+        return (
+            <Card title={"购物车"}>
+                {this.props.selectedGoods.length === 0 ? (<span>购物车空空如也</span>) : (<CartPanel/>)}
             </Card>
         )
     }
 }
+
 
 export default CartSider;

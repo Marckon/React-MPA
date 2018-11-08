@@ -3,16 +3,17 @@ import ReactDOM from 'react-dom';
 import RootComponent from './components/RootComponent/index';
 import {createStore} from 'redux';
 import {rootReducer} from "./reducers";
-import {setCartShow} from "./actions/displayActions";
+import {Provider} from 'react-redux';
 
 
 let store=createStore(rootReducer)
-store.dispatch(setCartShow(123))
 console.log(store.getState())
 class App extends React.Component{
     render(){
         return (
-            <RootComponent/>
+            <Provider store={store}>
+                <RootComponent/>
+            </Provider>
         )
     }
 }

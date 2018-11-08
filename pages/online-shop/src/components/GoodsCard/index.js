@@ -9,6 +9,7 @@ class GoodsCard extends React.Component{
             <Card
                 hoverable
                 cover={<img src={this.props.imageUrl} alt=""/>}
+                onClick={this.props.onClick}
             >
                 <Meta
                     title={this.props.shortName}
