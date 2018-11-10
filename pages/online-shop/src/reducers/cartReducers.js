@@ -1,6 +1,7 @@
 import {
-   ADD_TO_CART,
-    DROP_ONE
+    ADD_TO_CART,
+    DROP_ONE,
+    SET_AMOUNT
 } from "../actions/cartActions";
 
 const initialState={
@@ -10,7 +11,7 @@ const initialState={
 export const cartReducer=(state=initialState,action)=>{
     let handleAddToCart=()=>{
         let goodsInCart=state.selectedGoods.slice();
-        let targetGoods=goodsInCart.filter(v=>v.goodsId===action.goodsId)[0];
+        let targetGoods=goodsInCart.filter(v=>v.goodsId===action.goodsObj.goodsId)[0];
         if(targetGoods){
             targetGoods.count++;
             return Object.assign({},state,{
@@ -21,8 +22,9 @@ export const cartReducer=(state=initialState,action)=>{
                 selectedGoods:[
                     ...state.selectedGoods,
                     {
-                        goodsId:action.goodsId,
-                        count:1
+                        goodsId:action.goodsObj.goodsId,
+                        count:1,
+                        goodsObj:action.goodsObj
                     }
                 ]
             })
@@ -33,9 +35,23 @@ export const cartReducer=(state=initialState,action)=>{
         let goodsInCart=state.selectedGoods.slice()
         let targetGoods=goodsInCart.filter(v=>v.goodsId===action.goodsId)[0];
         targetGoods.count--;
+        if(targetGoods.count<=0){
+            return {
+                selectedGoods:[]
+            }
+        }
         return Object.assign({},state,{
             selectedGoods:goodsInCart
         });
+    };
+
+    let handleSetAmount=()=>{
+        let goodsInCart=state.selectedGoods.slice();
+        let targetGoods=goodsInCart.filter(v=>v.goodsId===action.goodsId)[0];
+        targetGoods.count=action.amount;
+        return {
+            selectedGoods:goodsInCart
+        }
     };
 
     switch (action.type) {
@@ -43,6 +59,8 @@ export const cartReducer=(state=initialState,action)=>{
            return  handleAddToCart();
         case DROP_ONE:
             return handleDropOne();
+        case SET_AMOUNT:
+            return handleSetAmount();
         default:
             return state;
     }

@@ -12,8 +12,8 @@ class GoodsList extends React.Component{
         this.state={goodsList:[]}
     }
 
-    handleGoodsClick(goodsId,e){
-        this.props.dispatchGoodsClick(goodsId)
+    handleGoodsClick(goodsObj,e){
+        this.props.dispatchGoodsClick(goodsObj)
     }
     componentWillMount(){
         let api=proxyGoodsListAPI();
@@ -26,7 +26,7 @@ class GoodsList extends React.Component{
     render(){
         const GoodsItem=this.state.goodsList.map((v)=>{
             //onClick 传递给子组件实现点击功能
-            return <GoodsCard key={v.goodsId}  imageUrl={v.imageUrl} shortName={v.goodsName} longName={v.goodsLongName}  onClick={this.handleGoodsClick.bind(this,v.goodsId)}/>
+            return <GoodsCard key={v.goodsId}  goodsObj={v} onClick={this.handleGoodsClick.bind(this,v)}/>
         });
         return (
             <div className={styles["goods-list"]}>
@@ -38,7 +38,7 @@ class GoodsList extends React.Component{
 
 const mapStateToProps=state=>{
     return {
-        selectedGoods:state.selectedGoods
+        selectedGoods:state.cartReducer.selectedGoods
     }
 }
 const mapDispatchToProps=dispatch=>{

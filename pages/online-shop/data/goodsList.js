@@ -25,7 +25,8 @@ function getAGoods() {
         imageUrl: getImageUrl(goodsENName),
         goodsName,
         goodsENName,
-        goodsLongName: getGoodsLongName(goodsName)
+        goodsLongName: getGoodsLongName(goodsName),
+        price:Random.natural(1,999),
     }
 }
 

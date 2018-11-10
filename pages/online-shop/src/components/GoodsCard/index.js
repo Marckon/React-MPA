@@ -1,19 +1,20 @@
 import React from 'react';
-import {Card} from 'antd';
+import {Card,Icon} from 'antd';
 
 const {Meta}=Card;
 
 class GoodsCard extends React.Component{
     render(){
+        const goodsObj=this.props.goodsObj;
         return(
             <Card
                 hoverable
-                cover={<img src={this.props.imageUrl} alt=""/>}
-                onClick={this.props.onClick}
+                cover={<img src={goodsObj.imageUrl} alt=""/>}
+                actions={[<span><Icon type={"dollar"}/>{`     ${goodsObj.price}`}</span>,<Icon type={"plus"}  onClick={this.props.onClick}/>]}
             >
                 <Meta
-                    title={this.props.shortName}
-                    description={this.props.longName}
+                    title={goodsObj.goodsName}
+                    description={goodsObj.goodsLongName}
                 />
             </Card>
         )

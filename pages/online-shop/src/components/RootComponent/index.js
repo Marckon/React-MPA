@@ -26,7 +26,7 @@ class RootComponent extends React.Component {
                         <GoodsList/>
                     </Content>
                     <Sider collapsible={true} theme={"light"} collapsed={!this.props.cartDisplay} trigger={null} onClick={this.props.dispatchCartSiderClick} >
-                        {this.props.cartDisplay ? (<CartSider selectedGoods={this.props.selectedGoods}/>) : (<CartSiderCollapsed goodsCount={this.props.selectedGoods.length}/>)}
+                        {this.props.cartDisplay ? (<CartSider/>) : (<CartSiderCollapsed goodsCount={this.props.selectedGoods.length}/>)}
                     </Sider>
                 </Layout>
             </Layout>

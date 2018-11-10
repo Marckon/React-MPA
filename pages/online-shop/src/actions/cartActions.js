@@ -2,14 +2,22 @@
 
 const ADD_TO_CART="ADD_TO_CART";
 const DROP_ONE="DROP_ONE";
+const SET_AMOUNT="SET_AMOUNT";
 
-const addToCart=(goodsId)=>{
+const addToCart=(goodsObj)=>{
     return {
         type:ADD_TO_CART,
-        goodsId
+        goodsObj
     }
 };
 
+const setAmount=(goodsId,amount)=>{
+    return {
+        type:SET_AMOUNT,
+        goodsId,
+        amount
+    }
+}
 
 const dropOne=(goodsId)=>{
     return{
@@ -21,6 +29,8 @@ const dropOne=(goodsId)=>{
 export {
     ADD_TO_CART,
     DROP_ONE,
+    SET_AMOUNT,
     addToCart,
-    dropOne
+    dropOne,
+    setAmount
 }

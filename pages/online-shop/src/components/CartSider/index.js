@@ -2,33 +2,60 @@ import React from 'react';
 import {Card, Button} from 'antd';
 import CartItem from '../CartItem';
 import {connect} from 'react-redux';
+import {addToCart, dropOne, setAmount} from "../../actions/cartActions";
 
 
 class CartSider extends React.Component {
-    componentDidMount() {
-
-
-    }
 
     render() {
-        console.log(this.props)
-        const ItemList =()=>( this.props.selectedGoods.map(v => {
-            return (<CartItem key={v.goodsId}/>)
-        }));
+        const goodsArr=this.props.selectedGoods;
         const CartPanel = () => (
             <div>
-                {ItemList}
-                <div>合计：￥659</div>
+                {
+                    goodsArr.map(v=>(
+                        <CartItem
+                            key={v.goodsId}
+                            goodsObj={v.goodsObj}
+                            count={v.count}
+                            clickAdd={()=>this.props.handleAddOne(v.goodsObj)}
+                            clickDrop={()=>this.props.handleDropOne(v.goodsId)}
+                            changeAmount={(newAmount)=>this.props.handleSetAmount(v.goodsId,newAmount)}
+                        />
+                    ))
+                }
+                <div>合计：
+                    {
+                        goodsArr.reduce((acc,cur,idx,src)=>(
+                            acc+cur.count*cur.goodsObj.price
+                        ),0)
+                    }
+                </div>
                 <Button type={"primary"}>结算</Button>
             </div>
         );
         return (
-            <Card title={"购物车"}>
-                {this.props.selectedGoods.length === 0 ? (<span>购物车空空如也</span>) : (<CartPanel/>)}
+            <Card title={"购物车"} onClick={(e)=>e.stopPropagation()}>
+                {goodsArr.length === 0 ? (<span>购物车空空如也</span>) : (<CartPanel/>)}
             </Card>
         )
     }
 }
 
+const mapStateToProps=state=>{
+    return {
+        selectedGoods:state.cartReducer.selectedGoods
+    }
+};
 
-export default CartSider;
+const mapDispatchToProps=dispatch=>{
+    return {
+        handleAddOne:(goodsObj)=>dispatch(addToCart(goodsObj)),
+        handleDropOne:(goodsId)=>dispatch(dropOne(goodsId)),
+        handleSetAmount:(id,newAmount)=>dispatch(setAmount(id,newAmount))
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(CartSider);
