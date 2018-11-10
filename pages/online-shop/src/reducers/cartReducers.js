@@ -36,8 +36,9 @@ export const cartReducer=(state=initialState,action)=>{
         let targetGoods=goodsInCart.filter(v=>v.goodsId===action.goodsId)[0];
         targetGoods.count--;
         if(targetGoods.count<=0){
+            goodsInCart.splice(goodsInCart.indexOf(targetGoods),1)
             return {
-                selectedGoods:[]
+                selectedGoods:goodsInCart
             }
         }
         return Object.assign({},state,{
