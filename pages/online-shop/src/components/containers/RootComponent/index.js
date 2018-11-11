@@ -1,12 +1,12 @@
 import React from 'react';
 import {Layout} from 'antd';
 import styles from './styles.scss'
-import CategorySider from '../CategorySider/index';
-import CartSider from '../CartSider';
-import GoodsList from '../GoodsList';
+import CategorySider from '../../CategorySider/index';
+import CartSider from '../CartSider/index';
+import GoodsList from '../GoodsList/index';
 import {connect} from 'react-redux';
-import {toggleCartShow} from "../../actions/displayActions";
-import CartSiderCollapsed from "../CartSiderCollapsed";
+import {toggleCartShow} from "../../../actions/displayActions";
+import CartSiderCollapsed from "../../CartSiderCollapsed/index";
 
 
 const {Header, Content, Sider, Footer} = Layout;
@@ -14,7 +14,6 @@ const {Header, Content, Sider, Footer} = Layout;
 class RootComponent extends React.Component {
 
     render() {
-        console.log(this.props)
         return (
             <Layout>
                 <Header className={styles.header}>MOCK商店</Header>

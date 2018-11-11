@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import {proxyGoodsListAPI} from '../../../data/index';
-import GoodsCard from '../GoodsCard';
+import {proxyGoodsListAPI} from '../../../../data/index';
+import GoodsCard from '../../GoodsCard/index';
 import styles from './styles.scss';
 import {connect} from 'react-redux';
-import {addToCart} from "../../actions/cartActions";
+import {addToCart} from "../../../actions/cartActions";
 
 class GoodsList extends React.Component{
     constructor(props){

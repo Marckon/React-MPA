@@ -1,8 +1,8 @@
 import React from 'react';
 import {Card, Button} from 'antd';
-import CartItem from '../CartItem';
+import CartItem from '../../CartItem/index';
 import {connect} from 'react-redux';
-import {addToCart, dropOne, setAmount} from "../../actions/cartActions";
+import {addToCart, dropOne, setAmount} from "../../../actions/cartActions";
 
 
 class CartSider extends React.Component {

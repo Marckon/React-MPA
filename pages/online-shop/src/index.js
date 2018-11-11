@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RootComponent from './components/RootComponent/index';
+import RootComponent from './components/containers/RootComponent/index';
 import {createStore} from 'redux';
 import {rootReducer} from "./reducers";
 import {Provider} from 'react-redux';

@@ -2,6 +2,17 @@ import React from 'react';
 import {Avatar,Button,Input,Col,Row} from 'antd';
 
 class CartItem extends React.Component{
+   handleChangeAmount(e){
+        if(e.keyCode===13){
+            if(e.target.value.match(/[0-9]+/)){
+                this.props.changeAmount(e.target.value)
+            }else{
+                alert("请输入正确的数量")
+                e.target.value=''
+            }
+        }
+    };
+
     render(){
         const goodsObj=this.props.goodsObj;
         return (
@@ -29,7 +40,7 @@ class CartItem extends React.Component{
                                 <Input
                                     size={"small"}
                                     defaultValue={this.props.count}
-                                    onChange={e=>this.props.changeAmount(e.target.value)}
+                                    onKeyUp={this.handleChangeAmount.bind(this)}
                                 />
                             </Col>
                             <Col span={3}>
