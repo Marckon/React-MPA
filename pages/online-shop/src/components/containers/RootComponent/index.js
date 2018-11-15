@@ -14,6 +14,7 @@ const {Header, Content, Sider, Footer} = Layout;
 class RootComponent extends React.Component {
 
     render() {
+        console.log(this.props)
         return (
             <Layout>
                 <Header className={styles.header}>MOCK商店</Header>

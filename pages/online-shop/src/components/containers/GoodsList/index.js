@@ -1,10 +1,10 @@
 import React from 'react';
-import axios from 'axios';
 import {proxyGoodsListAPI} from '../../../../data/index';
 import GoodsCard from '../../GoodsCard/index';
 import styles from './styles.scss';
 import {connect} from 'react-redux';
 import {addToCart} from "../../../actions/cartActions";
+import {fetchGoodsList} from "../../../actions/requestActions";
 
 class GoodsList extends React.Component{
     constructor(props){
@@ -15,16 +15,13 @@ class GoodsList extends React.Component{
     handleGoodsClick(goodsObj,e){
         this.props.dispatchGoodsClick(goodsObj)
     }
-    componentWillMount(){
+    componentDidMount(){
         let api=proxyGoodsListAPI();
-        axios.get(api)
-            .then(res=>{
-                this.setState({goodsList:res.data.goodsList})
-            })
+        this.props.getGoodsList(api);
     }
 
     render(){
-        const GoodsItem=this.state.goodsList.map((v)=>{
+        const GoodsItem=this.props.goodsList.map((v)=>{
             //onClick 传递给子组件实现点击功能
             return <GoodsCard key={v.goodsId}  goodsObj={v} onClick={this.handleGoodsClick.bind(this,v)}/>
         });
@@ -38,12 +35,14 @@ class GoodsList extends React.Component{
 
 const mapStateToProps=state=>{
     return {
+        goodsList:state.requestReducer.goodsList,
         selectedGoods:state.cartReducer.selectedGoods
     }
 }
 const mapDispatchToProps=dispatch=>{
     return {
-        dispatchGoodsClick:(goodsId)=>dispatch(addToCart(goodsId))
+        dispatchGoodsClick:(goodsId)=>dispatch(addToCart(goodsId)),
+        getGoodsList:(url)=>dispatch(fetchGoodsList(url))
     }
 }
 
