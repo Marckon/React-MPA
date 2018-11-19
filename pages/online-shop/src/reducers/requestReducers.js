@@ -5,7 +5,7 @@ import {
 
 const initialState={
     isFetching:false,
-    goodsList:[1,2,3]
+    goodsList:[]
 };
 const requestReducer=(state=initialState,action)=>{
     switch (action.type) {

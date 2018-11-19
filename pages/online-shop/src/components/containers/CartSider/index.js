@@ -17,9 +17,9 @@ class CartSider extends React.Component {
                             key={v.goodsId}
                             goodsObj={v.goodsObj}
                             count={v.count}
-                            clickAdd={()=>this.props.handleAddOne(v.goodsObj)}
-                            clickDrop={()=>this.props.handleDropOne(v.goodsId)}
-                            changeAmount={(newAmount)=>this.props.handleSetAmount(v.goodsId,newAmount)}
+                            clickAdd={()=>this.props.addToCart(v.goodsObj)}
+                            clickDrop={()=>this.props.dropOne(v.goodsId)}
+                            changeAmount={(newAmount)=>this.props.setAmount(v.goodsId,newAmount)}
                         />
                     ))
                 }
@@ -47,12 +47,10 @@ const mapStateToProps=state=>{
     }
 };
 
-const mapDispatchToProps=dispatch=>{
-    return {
-        handleAddOne:(goodsObj)=>dispatch(addToCart(goodsObj)),
-        handleDropOne:(goodsId)=>dispatch(dropOne(goodsId)),
-        handleSetAmount:(id,newAmount)=>dispatch(setAmount(id,newAmount))
-    }
+const mapDispatchToProps={
+    addToCart,
+    dropOne,
+    setAmount
 }
 
 export default connect(

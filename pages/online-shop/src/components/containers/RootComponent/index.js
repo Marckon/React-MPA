@@ -25,7 +25,7 @@ class RootComponent extends React.Component {
                     <Content className={styles.content}>
                         <GoodsList/>
                     </Content>
-                    <Sider collapsible={true} theme={"light"} collapsed={!this.props.cartDisplay} trigger={null} onClick={this.props.dispatchCartSiderClick} >
+                    <Sider collapsible={true} theme={"light"} collapsed={!this.props.cartDisplay} trigger={null} onClick={this.props.toggleCartShow} >
                         {this.props.cartDisplay ? (<CartSider/>) : (<CartSiderCollapsed goodsCount={this.props.selectedGoods.length}/>)}
                     </Sider>
                 </Layout>
@@ -40,10 +40,8 @@ const mapStateToProps = state => {
         selectedGoods:state.cartReducer.selectedGoods
     }
 };
-const mapDispatchToProps = dispatch => {
-    return {
-        dispatchCartSiderClick: () => dispatch(toggleCartShow())
-    }
+const mapDispatchToProps = {
+    toggleCartShow
 }
 
 export default connect(

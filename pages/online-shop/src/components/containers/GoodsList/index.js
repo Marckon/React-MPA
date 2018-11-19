@@ -13,11 +13,11 @@ class GoodsList extends React.Component{
     }
 
     handleGoodsClick(goodsObj,e){
-        this.props.dispatchGoodsClick(goodsObj)
+        this.props.addToCart(goodsObj)
     }
     componentDidMount(){
         let api=proxyGoodsListAPI();
-        this.props.getGoodsList(api);
+        this.props.fetchGoodsList(api);
     }
 
     render(){
@@ -39,13 +39,10 @@ const mapStateToProps=state=>{
         selectedGoods:state.cartReducer.selectedGoods
     }
 }
-const mapDispatchToProps=dispatch=>{
-    return {
-        dispatchGoodsClick:(goodsId)=>dispatch(addToCart(goodsId)),
-        getGoodsList:(url)=>dispatch(fetchGoodsList(url))
-    }
+const mapDispatchToProps={
+    addToCart,
+    fetchGoodsList
 }
-
 export default connect(
     mapStateToProps,
     mapDispatchToProps
