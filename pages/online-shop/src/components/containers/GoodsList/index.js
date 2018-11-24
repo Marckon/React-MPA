@@ -9,7 +9,6 @@ import {fetchGoodsList} from "../../../actions/requestActions";
 class GoodsList extends React.Component{
     constructor(props){
         super(props);
-        this.state={goodsList:[]}
     }
 
     handleGoodsClick(goodsObj,e){

@@ -7,22 +7,21 @@ const REQUEST_GOODSLIST = "REQUEST_GOODSLIST";
 const RECEIVE_GOODSLIST = "RECEIVE_GOODSLIST";
 
 
-const requestGoodslist = () => ({
+const requestGoodsList = () => ({
     type: REQUEST_GOODSLIST
 });
 
-const receiveGoodslist = json => ({
+const receiveGoodsList = json => ({
     type: RECEIVE_GOODSLIST,
     goodsList: json.goodsList,
     receivedAt: Date.now()
 });
 
 const fetchGoodsList = url => dispatch => {
-    dispatch(requestGoodslist());
-    return axios.get(url)
+    dispatch(requestGoodsList());
+    axios.get(url)
         .then(res=>{
-            console.log(res.data)
-            dispatch(receiveGoodslist(res.data))
+            dispatch(receiveGoodsList(res.data))
         })
 };
 

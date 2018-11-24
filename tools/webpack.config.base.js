@@ -18,7 +18,8 @@ module.exports = {
     devtool: "source-map",
     devServer: {
         contentBase: path.resolve(__dirname, '..'),
-        publicPath: "/dist/"
+        publicPath: "/dist/",
+        historyApiFallBack:true
     },
     module: {
         rules: [
