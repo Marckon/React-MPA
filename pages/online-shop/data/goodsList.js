@@ -27,6 +27,7 @@ function getAGoods() {
         goodsENName,
         goodsLongName: getGoodsLongName(goodsName),
         price:Random.natural(1,999),
+        store:Random.natural(1,999)
     }
 }
 

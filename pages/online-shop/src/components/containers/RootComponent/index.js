@@ -7,6 +7,8 @@ import GoodsList from '../GoodsList/index';
 import {connect} from 'react-redux';
 import {toggleCartShow} from "../../../actions/displayActions";
 import CartSiderCollapsed from "../../CartSiderCollapsed/index";
+import {BrowserRouter as Router, Switch,Route} from 'react-router-dom';
+import GoodsDetail from "../GoodsDetail";
 
 
 const {Header, Content, Sider, Footer} = Layout;
@@ -23,7 +25,12 @@ class RootComponent extends React.Component {
                         <CategorySider/>
                     </Sider>
                     <Content className={styles.content}>
-                        <GoodsList/>
+                        <Router>
+                            <Switch>
+                                <Route path={"/pages/online-shop/"} exact component={GoodsList}/>
+                                <Route path={"/pages/online-shop/goodsDetail/:goodsId"} exact component={GoodsDetail}/>
+                            </Switch>
+                        </Router>
                     </Content>
                     <Sider collapsible={true} theme={"light"} collapsed={!this.props.cartDisplay} trigger={null} onClick={this.props.toggleCartShow} >
                         {this.props.cartDisplay ? (<CartSider/>) : (<CartSiderCollapsed goodsCount={this.props.selectedGoods.length}/>)}
