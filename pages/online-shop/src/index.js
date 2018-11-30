@@ -2,12 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import RootComponent from './components/RootComponent/index';
 
-class App extends React.Component{
-    render(){
-        return (
-            <RootComponent/>
-        )
-    }
+function App(){
+    return <RootComponent/>
 }
 
 ReactDOM.render(<App/>,document.getElementById('root'));

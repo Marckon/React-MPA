@@ -1,0 +1,16 @@
+.goods-list{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: space-around;
+  overflow: scroll;
+  height:100%;
+}
+::-webkit-scrollbar{
+  background-color: #fff;
+}
+::-webkit-scrollbar-thumb{
+   width: 5px;
+   height: 8px;
+   background-color: #aaa;
+ }

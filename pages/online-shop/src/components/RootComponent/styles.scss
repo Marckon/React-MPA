@@ -1,7 +1,11 @@
+.container{
+  height:100vh;
+  width:100vw;
+}
 .header{
   background-color: antiquewhite;
   font-size:1.5rem;
 }
 .content{
-  min-height: 90vh;
+  overflow: hidden;
 }
